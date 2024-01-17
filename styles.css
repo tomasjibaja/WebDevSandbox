@@ -1,0 +1,51 @@
+body {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: blanchedalmond;
+}
+
+.container {
+    height: 90vh;
+    padding: 3px;
+    border: 3px solid darkslategrey;
+    background: lightsalmon;
+    border-radius: 9px;
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(3, 70px);
+    grid-auto-rows: 70px;
+    align-content: center;
+    justify-content: center;
+}
+
+.container div {
+    background: lightblue;
+    border: 3px solid slateblue;
+    border-radius: 6px;
+    padding: auto;
+    opacity: .7;
+    transition: all .1s linear;
+}
+
+.container div:hover {
+    opacity: 1;
+}
+
+.container div:active {
+    animation: press .05s linear 1;
+}
+
+@keyframes press {
+    to {transform: scale(.8);
+        background: white;}
+}
+
+.container div:first-child {
+    background: lightgreen;
+    border: 3px solid darkgreen;
+}
+
+.container div:last-child {
+    background: slateblue;
+    border: 3px solid darkslateblue;
+}
