@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Cosits</title>
+    <style>
+        .button--container {
+            position: relative;
+            margin: auto;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #openedSites {
+            width: 450px;
+            margin: 0 auto;
+            overflow: hidden;
+            text-overflow: clip;
+        }
+    </style>
+</head>
+<body>
+    <div class="button--container">
+        <button type="button" onclick="openSite('youtube.com')">YouTube</button>
+        <button type="button" onclick="openSite('instagram.com')">Instagram</button>
+        <button type="button" onclick="openSite('facebook.com')">Facebook</button>
+        <button type="button" onclick="openSite('google.com')">Google</button>
+        <button type="button" onclick="askSite()">INPUT</button>
+        <button type="button" onclick="resetCounter()">RESET</button>
+    </div>
+
+    <div style="font-family: Arial, Helvetica, sans-serif;" id="openedSites"><h2>Páginas abiertas</h2></div>
+
+    <script>
+        let counter = document.getElementById("openedSites");
+        
+        const openSite = (site) => {
+            const openUrl = `https://${site}`;
+            window.open(openUrl);
+            let faviconCode = `<img src="https://www.google.com/s2/favicons?domain=https://${site}" />`;
+            counter.innerHTML += "&#9733 " + openUrl + " " + faviconCode + "<br>";
+        }
+
+        const askSite = () => {
+            let site = window.prompt("Ingresa el sitio a visitar...")
+            openSite(site);
+        }
+        
+        const resetCounter = () => {
+            counter.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
